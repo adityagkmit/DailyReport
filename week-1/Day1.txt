@@ -1,0 +1,11 @@
+Day 1, 17-09-2024
+- Got to knew about Homebrew
+- Installed Node.js, NVM and Vscoode.
+- Learned to use .zshrc file
+- Helped others getting started with NVM and .zshrc file
+- Got started with docker
+- Created github account
+- Got introduced with SSH and generated keys
+- Connected Github with local using SSH
+- Installed iTerm2 terminal
+- Also got to know about creating email signatures
