@@ -9,5 +9,3 @@ Day 1, 17-09-2024
 - Connected Github with local using SSH
 - Installed iTerm2 terminal
 - Also got to know about creating email signatures
-
-
