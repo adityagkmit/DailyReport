@@ -1,0 +1,21 @@
+Session summary:
+Program to print even number from an array.
+Session on map, forEach and filter.
+Session on let, const and var.
+Program to print array of name and address from an array of objects.
+Session on Using string interpolation in JS.
+Session on difference between map and forEach function and its use cases.
+Program to print array of name and address as well as string of name and address from an array of objects.
+Program to print name of the user having even phone number from an array of objects.
+Session on difference between filter and find.
+Tasks:
+Revision JS from w3schools.
+reduce Function.
+Sort: Number -> ascending to descending and vice versa
+	 Alphabet -> A-Z and Z-A
+	Objects -> both numbers and alphabets.
+Basics of TS.
+Change repo name to GKMIT_Training.
+Change the name from apple to <your name>.
+Push all code in GitHub(both daily session and task codes).
+Change folder structure. 
