@@ -1,0 +1,111 @@
+
+
+USER ROUTES
+
+1. Create User
+   - URL: `localhost:5000/users`
+   - Method: POST
+   - Body: `{ field: value }`
+   - Response: `{ id }`
+   - Status: 201 Created
+
+2. Get User Details
+   - URL: `localhost:5000/users/:id`
+   - Method: GET
+   - Response: `{ id }`
+   - Status: 200 OK
+
+3. Get All Users
+   - URL: `localhost:5000/users`
+   - Method: GET
+   - Response: `{ id }`
+   - Status: 200 OK
+
+4. Update Particular Fields of a User
+   - URL: `localhost:5000/users/:id`
+   - Method: PATCH
+   - Body: `{ field: value }`
+   - Response: `{ id }`
+   - Status: 200 OK
+
+5. Update Whole User
+   - URL: `localhost:5000/users/:id`
+   - Method: PUT
+   - Body: `{ field: value }`
+   - Response: `{ id }`
+   - Status: 200 OK
+
+6. Delete User
+   - URL: `localhost:5000/users/:id`
+   - Method: DELETE
+   - Response: `{ id }`
+   - Status: 200 OK
+
+---
+
+POST ROUTES
+
+1. Create Post
+   - URL: `localhost:5000/post`
+   - Method: POST
+   - Body: `{ field: value }`
+   - Response: `{ id }`
+   - Status: 201 Created
+
+2. Get Posts
+   - URL: `localhost:5000/posts`
+   - Method: GET
+   - Response: `{ id }`
+   - Status: 200 OK
+
+3. Get a Particular Post
+   - URL: `localhost:5000/posts/:id`
+   - Method: GET
+   - Response: `{ id }`
+   - Status: 200 OK
+
+4. Update Particular Fields in a Post
+   - URL: `localhost:5000/posts/:id`
+   - Method: PATCH
+   - Body: `{ field: value }`
+   - Response: `{ id }`
+   - Status: 200 OK
+
+5. Update Whole Post
+   - URL: `localhost:5000/posts/:id`
+   - Method: PUT
+   - Body: `{ field: value }`
+   - Response: `{ id }`
+   - Status: 200 OK
+
+6. Delete a Post
+   - URL: `localhost:5000/posts/:id`
+   - Method: DELETE
+   - Response: `{ id }`
+   - Status: 200 OK
+
+7. Get All Posts of a User
+   - URL: `localhost:5000/posts/user/:userid`
+   - Method: GET
+   - Response: `{ id }`
+   - Status: 200 OK
+
+8. Search Posts with Start Date and End Date
+   - URL: `localhost:5000/posts?startDate=2024-01-01&endDate=2024-12-31`
+   - Method: GET
+   - Response: `{ id }`
+   - Status: 200 OK
+
+9. Search Posts with Day, Month, and Year
+   - URL: `localhost:5000/posts?day=19&month=08&year=2003`
+   - Method: GET
+   - Response: `{ id }`
+   - Status: 200 OK
+
+10. Comment
+   - URL: `localhost:5000/posts/:id/commentPost`
+   - Method: POST
+   - Response: `{ id }`
+   - Status: 201 Created
+
+
