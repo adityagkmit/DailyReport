@@ -1,0 +1,33 @@
+Session title : Postman 
+
+
+Summary
+
+Authorization types in postman
+Basic auth
+Bearer tokens
+JWT 
+OAuth 1.0
+OAuth 2.0
+API Key
+Request headers
+Content-type
+Authorization
+Host
+User-Agent
+Response headers
+Content-type
+Status code
+X-Powered-By
+X-Ratelimit-Limit
+X-Ratelimit-Remaining
+API rate limiting
+Cors
+
+
+TODO:
+
+Base 64 encoding and decoding
+Cookie based authentication
+Session based authentication
+
