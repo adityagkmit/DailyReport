@@ -1,0 +1,53 @@
+Session title : SQL Database
+
+Day1
+
+Afternoon Session
+
+Summary:
+
+Docker setup
+Postgres setup
+Postbird installation.
+Mongo, Redis setup.
+SQL BASICS:
+DDL, DML
+SQL queries
+Select
+Update
+Delete
+Insert
+Joins
+
+Task Assigned:
+
+1. When to use HAVING..
+2. Restore DUMP database shared by Paras.
+3. DDL, DML.
+4. learn DISTINCT and GROUP BY.
+5. Min, max and other aggregate functions.
+
+
+Evening Session
+
+Summary: 
+Table and Column naming convention in SQL.
+Restored database dump.
+Executing SQL queries.
+Formatting queries.
+Execution Flow in SQL query.
+
+Task Assigned:
+Explore pg_restore command
+Perform aggregation function on “Track” table 
+Perform max on milliseconds.
+Perform min on bytes
+Perform sum on unit price
+Calculate kilobyte / second using bytes and milliseconds from the “Track” table.
+Calculate the count of people by their ‘city’ and sort them alphabetically from the “Employee” table.
+Count the number of invoices in the range of Jan to March of 2009 using the invoice date and also calculate the sum of the total of invoices in that range.
+Explore draw.io
+SOLID principles
+Normalization in db
+Atomicity.
+Create a new branch in your daily repo then add all queries in a .sql file then create a PR to main and add Paras as reviewer.

@@ -1,0 +1,49 @@
+
+Task-1: Perform aggregation function on “Track” table 
+            a) Perform max on milliseconds.
+            b) Perform min on bytes
+            c) Perform sum on unit price
+
+SELECT 
+    MAX("Milliseconds") AS "Max Milliseconds",  -- Finds the maximum value in the Milliseconds column
+    MIN("Bytes") AS "Min Bytes",                -- Finds the minimum value in the Bytes column
+    SUM("UnitPrice") AS "Total UnitPrice"       -- Calculates the sum of all values in the UnitPrice column
+FROM
+    "Track";
+  
+
+
+Task-2: Calculate kilobyte / second using bytes and milliseconds from the “Track” table.
+
+SELECT 
+    "TrackId",                                   -- Track identifier
+    "Name",                                      -- Track name
+    ("Bytes" / 1024.0) / ("Milliseconds" / 1000.0) AS "KBps" -- Divides Bytes by 1024 to get Kilobytes, and Milliseconds by 1000 to get seconds, then divides Kilobytes by seconds
+FROM 
+    "Track";
+
+
+
+ Task-3: Calculate the count of people by their ‘city’ and sort them alphabetically from the “Employee” table.
+
+SELECT 
+    "City",                                      -- Employee city
+    COUNT("EmployeeId") AS "Employee Count"      -- Count of employees in each city
+FROM
+    "Employee"
+GROUP BY 
+    "City"                                       -- Group results by city
+ORDER BY
+    "City" ASC;                                  -- Sort cities alphabetically in ascending order
+
+
+
+Task-4: Count the number of invoices in the range of Jan to March of 2009 using the invoice date and also calculate the sum of the total of invoices in that range.
+
+SELECT 
+    COUNT(*) AS "Invoice Count",                 -- Counts the total number of invoices within the date range
+    SUM("Total") AS "Total Sum"                  -- Sums the total amount of all invoices in the date range
+FROM 
+    "Invoice"
+WHERE 
+    "InvoiceDate" BETWEEN '2009-01-01' AND '2009-03-31'; -- Filters invoices between January 1, 2009, and March 31, 2009
