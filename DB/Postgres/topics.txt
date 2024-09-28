@@ -51,3 +51,90 @@ SOLID principles
 Normalization in db
 Atomicity.
 Create a new branch in your daily repo then add all queries in a .sql file then create a PR to main and add Paras as reviewer.
+
+
+Day2
+
+Date: 26-09-2024
+Name: Jyoti Deveda
+Session Title: Inner join and Subqueries
+
+Morning Session
+Summary:
+
+Queries using inner join
+Doubt resolution related to given task 
+How to write sub-queries: Syntax of subquery
+Subqueries can be written in different parts of the query
+Select
+Where
+from
+Join
+Where vs having. 
+To do:
+Read about the following topics and prepare to present
+Transactions
+Views
+Materialized views
+case
+Array, JSON and JSONB
+
+
+Evening Session
+Summary:
+Discussion on the topics given as task i.e 
+Transactions
+Views
+Materialized views
+
+To do:
+Practice queries from sql-practice
+Prepare for the remaining topics
+
+
+Day3
+
+Date - 27-09-2024
+Name - Aditya Singh Rajawat
+Session title : Postgres
+
+Afternoon Session
+
+Summary:
+Indexing 
+Regular Indexing
+Composite Indexing
+Uuid
+Extensions
+Constrains
+Required
+Unique
+Enums 
+Required
+Default
+Foreign key
+Soft Delete or Archive
+Variable Convention in Postgres
+:userId this will prompt for input while running a query
+
+
+Task Assigned:
+
+1. Learn Cascade
+2. Array inbuilt function postgres
+3. Create a collection in postman for following 
+	Track
+Playlist
+Album
+Artist
+MediaType
+Genre
+Create endpoints, request, response and queries for CRUD operations 
+
+
+Evening Session
+
+Summary:
+
+Queries solved and discussion on the previously given task.
+Mongo setup.
