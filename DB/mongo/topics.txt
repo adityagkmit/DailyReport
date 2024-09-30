@@ -1,0 +1,38 @@
+Session title : MongoDB
+
+Afternoon Session
+
+Summary:
+What is NoSQL ?
+SQL Query Engine
+SQL processor/engine/main_lib
+Schema-full and schema-less
+SQL Like engine
+Why NoSQL ?
+SQL vs NoSQL
+Why is SQL always used as a master database ?
+Use cases of NoSQL databases.
+How to make different relations in mongoDB
+CRUD in mongoDB
+Different filter operators of find.
+Different operators of update.
+Limit, skip, count and sort methods.
+
+Task Assigned:
+
+Remove middle element using pull
+Use all operators of update in mflix database
+Limit sort and skip implementation in movies
+Use anding and oring in one query
+Use regex operator to make search of plot
+
+
+Evening Session
+
+Summary:
+
+Regex
+Transactions in mongoDB
+Replica set in mongoDB
+Replica set in SQL
+Shredding in Database
