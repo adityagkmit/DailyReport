@@ -1,0 +1,1736 @@
+{
+	"info": {
+		"_postman_id": "143b663f-0325-43a5-8102-b41613f33239",
+		"name": "chinook-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38476509"
+	},
+	"item": [
+		{
+			"name": "Track",
+			"item": [
+				{
+					"name": "get all tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    *",
+									"FROM ",
+									"    Track",
+									"",
+									"[",
+									"  {",
+									"    \"TrackId\": 1,",
+									"    \"Name\": \"Track Name 1\",",
+									"    \"AlbumId\": 1,",
+									"    \"MediaTypeId\": 1,",
+									"    \"GenreId\": 1,",
+									"    \"Composer\": \"Composer Name\",",
+									"    \"Milliseconds\": 300000,",
+									"    \"Bytes\": 5000000,",
+									"    \"UnitPrice\": 1.99",
+									"  },",
+									"  {",
+									"    \"TrackId\": 2,",
+									"    \"Name\": \"Track Name 2\",",
+									"    \"AlbumId\": 2,",
+									"    \"MediaTypeId\": 1,",
+									"    \"GenreId\": 2,",
+									"    \"Composer\": \"Composer Name\",",
+									"    \"Milliseconds\": 240000,",
+									"    \"Bytes\": 4000000,",
+									"    \"UnitPrice\": 0.99",
+									"  }",
+									"]",
+									"",
+									"Status Code: 200 OK",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}tracks"
+					},
+					"response": []
+				},
+				{
+					"name": "get specific track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    *",
+									"FROM ",
+									"    Track",
+									"WHERE ",
+									"    TrackId = :trackId;",
+									"",
+									"{",
+									"  \"TrackId\": 1,",
+									"  \"Name\": \"Track Name 1\",",
+									"  \"AlbumId\": 1,",
+									"  \"MediaTypeId\": 1,",
+									"  \"GenreId\": 1,",
+									"  \"Composer\": \"Composer Name\",",
+									"  \"Milliseconds\": 300000,",
+									"  \"Bytes\": 5000000,",
+									"  \"UnitPrice\": 1.99",
+									"}",
+									"",
+									"Status Code: 200 OK",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}tracks/:trackId",
+							"host": [
+								"{{BASE_URL}}tracks"
+							],
+							"path": [
+								":trackId"
+							],
+							"variable": [
+								{
+									"key": "trackId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"INSERT INTO Track (Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice)",
+									"VALUES (:name, :albumId, :mediaTypeId, :genreId, :composer, :milliseconds, :bytes, :unitPrice);",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Track created successfully\",",
+									"  \"TrackId\": 1001",
+									"}",
+									"",
+									"Status Code: 201 Created",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"New Track\",\n  \"AlbumId\": 1,\n  \"MediaTypeId\": 1,\n  \"GenreId\": 2,\n  \"Composer\": \"New Composer\",\n  \"Milliseconds\": 320000,\n  \"Bytes\": 6000000,\n  \"UnitPrice\": 1.29\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}tracks"
+					},
+					"response": []
+				},
+				{
+					"name": "update track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"UPDATE ",
+									"    Track",
+									"SET ",
+									"    Name = :name, AlbumId = :albumId, MediaTypeId = :mediaTypeId, GenreId = :genreId, ",
+									"    Composer = :composer, Milliseconds = :milliseconds, Bytes = :bytes, UnitPrice = :unitPrice",
+									"WHERE ",
+									"    TrackId = :trackId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Track updated successfully\"",
+									"}",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"Updated Track\",\n  \"AlbumId\": 1,\n  \"MediaTypeId\": 2,\n  \"GenreId\": 3,\n  \"Composer\": \"Updated Composer\",\n  \"Milliseconds\": 350000,\n  \"Bytes\": 7000000,\n  \"UnitPrice\": 1.49\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}tracks/:trackId",
+							"host": [
+								"{{BASE_URL}}tracks"
+							],
+							"path": [
+								":trackId"
+							],
+							"variable": [
+								{
+									"key": "trackId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"DELETE FROM ",
+									"    Track ",
+									"WHERE ",
+									"    TrackId = :trackId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Track deleted successfully\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}tracks/:trackId",
+							"host": [
+								"{{BASE_URL}}tracks"
+							],
+							"path": [
+								":trackId"
+							],
+							"variable": [
+								{
+									"key": "trackId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Playlist",
+			"item": [
+				{
+					"name": "get all playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT",
+									"    *",
+									"From",
+									"    Playlist",
+									"",
+									"",
+									"[",
+									"  {",
+									"    \"PlaylistId\": 1,",
+									"    \"Name\": \"Playlist 1\"",
+									"  },",
+									"  {",
+									"    \"PlaylistId\": 2,",
+									"    \"Name\": \"Playlist 2\"",
+									"  }",
+									"]",
+									"",
+									"Status Code: 200 OK",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}playlists"
+					},
+					"response": []
+				},
+				{
+					"name": "get specific playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    * ",
+									"FROM ",
+									"    Playlist ",
+									"WHERE ",
+									"    PlaylistId = :playlistId;",
+									"",
+									"",
+									"{",
+									"  \"PlaylistId\": 1,",
+									"  \"Name\": \"Playlist 1\"",
+									"}",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}playlists/:playlistId",
+							"host": [
+								"{{BASE_URL}}playlists"
+							],
+							"path": [
+								":playlistId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"INSERT INTO ",
+									"    Playlist (Name)",
+									"VALUES ",
+									"    (:name);",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Playlist created successfully\",",
+									"  \"PlaylistId\": 2001",
+									"}",
+									"",
+									"",
+									"Status Code: 201 Created "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"My Playlist\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}playlists"
+					},
+					"response": []
+				},
+				{
+					"name": "update playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"UPDATE ",
+									"    Playlist ",
+									"SET ",
+									"    Name = :name ",
+									"WHERE ",
+									"    PlaylistId = :playlistId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Playlist updated successfully\"",
+									"}",
+									"",
+									"Status Code: 200 OKs"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"Updated Playlist\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}playlists/:playlistId",
+							"host": [
+								"{{BASE_URL}}playlists"
+							],
+							"path": [
+								":playlistId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"DELETE FROM ",
+									"    Playlist ",
+									"WHERE ",
+									"    PlaylistId = :playlistId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Playlist deleted successfully\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}playlists/:playlistId",
+							"host": [
+								"{{BASE_URL}}playlists"
+							],
+							"path": [
+								":playlistId"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tracks in a playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    t.* ",
+									"FROM ",
+									"    Track t",
+									"JOIN ",
+									"    PlaylistTrack pt ON t.TrackId = pt.TrackId",
+									"WHERE ",
+									"    pt.PlaylistId = :playlistId;",
+									"",
+									"",
+									"[",
+									"  {",
+									"    \"TrackId\": 1,",
+									"    \"Name\": \"Track Name 1\",",
+									"    \"AlbumId\": 1,",
+									"    \"MediaTypeId\": 1,",
+									"    \"GenreId\": 1,",
+									"    \"Composer\": \"Composer Name\",",
+									"    \"Milliseconds\": 300000,",
+									"    \"Bytes\": 5000000,",
+									"    \"UnitPrice\": 1.99",
+									"  },",
+									"  {",
+									"    \"TrackId\": 2,",
+									"    \"Name\": \"Track Name 2\",",
+									"    \"AlbumId\": 2,",
+									"    \"MediaTypeId\": 1,",
+									"    \"GenreId\": 2,",
+									"    \"Composer\": \"Composer Name\",",
+									"    \"Milliseconds\": 240000,",
+									"    \"Bytes\": 4000000,",
+									"    \"UnitPrice\": 0.99",
+									"  }",
+									"]",
+									"",
+									"",
+									"Status Code: 200 OK",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}playlists/:playlistId/tracks",
+							"host": [
+								"{{BASE_URL}}playlists"
+							],
+							"path": [
+								":playlistId",
+								"tracks"
+							],
+							"variable": [
+								{
+									"key": "playlistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Album",
+			"item": [
+				{
+					"name": "get all albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    *",
+									"FROM",
+									"    albums",
+									"",
+									"",
+									"[",
+									"  {",
+									"    \"AlbumId\": 1,",
+									"    \"Title\": \"Album 1\",",
+									"    \"ArtistId\": 1",
+									"  },",
+									"  {",
+									"    \"AlbumId\": 2,",
+									"    \"Title\": \"Album 2\",",
+									"    \"ArtistId\": 2",
+									"  }",
+									"]",
+									"",
+									"Status Code: 200 OK",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}artists/:artistId/albums",
+							"host": [
+								"{{BASE_URL}}artists"
+							],
+							"path": [
+								":artistId",
+								"albums"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    * ",
+									"FROM ",
+									"    Album ",
+									"WHERE ",
+									"    AlbumId = :albumId;",
+									"",
+									"",
+									"{",
+									"  \"AlbumId\": 1,",
+									"  \"Title\": \"Album 1\",",
+									"  \"ArtistId\": 1",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}artists/:artistId/albums/:albumId",
+							"host": [
+								"{{BASE_URL}}artists"
+							],
+							"path": [
+								":artistId",
+								"albums",
+								":albumId"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								},
+								{
+									"key": "albumId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"INSERT INTO Album (Title, ArtistId) VALUES (:title, :artistId);",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Album created successfully\",",
+									"  \"AlbumId\": 3001",
+									"}",
+									"",
+									"",
+									"Status Code: 201 Created"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"New Album\",\n  \"ArtistId\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}artists/:artistId/albums",
+							"host": [
+								"{{BASE_URL}}artists"
+							],
+							"path": [
+								":artistId",
+								"albums"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"UPDATE ",
+									"    Album ",
+									"SET ",
+									"    Title = :title, ",
+									"    ArtistId = :artistId ",
+									"WHERE ",
+									"    AlbumId = :albumId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Album updated successfully\"",
+									"}",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"Updated Album\",\n  \"ArtistId\": 2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}artists/:artistId/albums/:albumId",
+							"host": [
+								"{{BASE_URL}}artists"
+							],
+							"path": [
+								":artistId",
+								"albums",
+								":albumId"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								},
+								{
+									"key": "albumId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"DELETE FROM ",
+									"    Album ",
+									"WHERE ",
+									"    AlbumId = :albumId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Album deleted successfully\"",
+									"}",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}artists/:artistId/albums/:albumId",
+							"host": [
+								"{{BASE_URL}}artists"
+							],
+							"path": [
+								":artistId",
+								"albums",
+								":albumId"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								},
+								{
+									"key": "albumId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tracks in a album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    * ",
+									"FROM ",
+									"    Track ",
+									"WHERE ",
+									"    AlbumId = :albumId;",
+									"",
+									"",
+									"[",
+									"  {",
+									"    \"TrackId\": 1,",
+									"    \"Name\": \"Track Name 1\",",
+									"    \"AlbumId\": 1,",
+									"    \"MediaTypeId\": 1,",
+									"    \"GenreId\": 1,",
+									"    \"Composer\": \"Composer Name\",",
+									"    \"Milliseconds\": 300000,",
+									"    \"Bytes\": 5000000,",
+									"    \"UnitPrice\": 1.99",
+									"  }",
+									"]",
+									"",
+									"Status Code: 200 OK",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}albums/:albumId/tracks",
+							"host": [
+								"{{BASE_URL}}albums"
+							],
+							"path": [
+								":albumId",
+								"tracks"
+							],
+							"variable": [
+								{
+									"key": "albumId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artist",
+			"item": [
+				{
+					"name": "get all artists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT",
+									"    *",
+									"FROM",
+									"    Artist",
+									"",
+									"",
+									"",
+									"[",
+									"  {",
+									"    \"ArtistId\": 1,",
+									"    \"Name\": \"Artist 1\"",
+									"  },",
+									"  {",
+									"    \"ArtistId\": 2,",
+									"    \"Name\": \"Artist 2\"",
+									"  }",
+									"]",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}artists"
+					},
+					"response": []
+				},
+				{
+					"name": "get specific artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT",
+									"    *",
+									"FROM",
+									"    Artist",
+									"WHERE",
+									"    ArtistId = :artistId;",
+									"",
+									"",
+									"{",
+									"  \"ArtistId\": 1,",
+									"  \"Name\": \"Artist 1\"",
+									"}",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}artists/:artistId",
+							"host": [
+								"{{BASE_URL}}artists"
+							],
+							"path": [
+								":artistId"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"INSERT INTO Artist (Name) VALUES (:name);",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Artist created successfully\",",
+									"  \"ArtistId\": 4001",
+									"}",
+									"",
+									"",
+									"Status Code: 201 Created"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"New Artist\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}artists"
+					},
+					"response": []
+				},
+				{
+					"name": "update artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"UPDATE ",
+									"    Artist ",
+									"SET ",
+									"    Name = :name ",
+									"WHERE ",
+									"    ArtistId = :artistId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Artist updated successfully\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}artists/:artistId",
+							"host": [
+								"{{BASE_URL}}artists"
+							],
+							"path": [
+								":artistId"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"DELETE FROM ",
+									"    Artist ",
+									"WHERE ",
+									"    ArtistId = :artistId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Artist deleted successfully\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}artists/:artistId",
+							"host": [
+								"{{BASE_URL}}artists"
+							],
+							"path": [
+								":artistId"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all albums of a specific artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    * ",
+									"FROM ",
+									"    Album ",
+									"WHERE ",
+									"    ArtistId = :artistId;",
+									"",
+									"",
+									"",
+									"[",
+									"  {",
+									"    \"AlbumId\": 1,",
+									"    \"Title\": \"Album 1\"",
+									"  },",
+									"  {",
+									"    \"AlbumId\": 2,",
+									"    \"Title\": \"Album 2\"",
+									"  }",
+									"]",
+									"",
+									"Status Code: 200 OK",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}artists/:artistId/albums",
+							"host": [
+								"{{BASE_URL}}artists"
+							],
+							"path": [
+								":artistId",
+								"albums"
+							],
+							"variable": [
+								{
+									"key": "artistId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MediaType",
+			"item": [
+				{
+					"name": "get all mediatypes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT",
+									"    *",
+									"FROM",
+									"    MediaType ",
+									"",
+									"",
+									"[",
+									"  {",
+									"    \"MediaTypeId\": 1,",
+									"    \"Name\": \"MPEG audio\"",
+									"  },",
+									"  {",
+									"    \"MediaTypeId\": 2,",
+									"    \"Name\": \"Protected AAC audio file\"",
+									"  }",
+									"]",
+									"",
+									"",
+									"Status Code: 200 OK",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}mediatypes"
+					},
+					"response": []
+				},
+				{
+					"name": "create mediatype",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"INSERT INTO MediaType (Name) VALUES (:name);",
+									"",
+									"",
+									"{",
+									"  \"message\": \"MediaType created successfully\",",
+									"  \"MediaTypeId\": 5001",
+									"}",
+									"",
+									"",
+									"Status Code: 201 Created"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}mediatypes"
+					},
+					"response": []
+				},
+				{
+					"name": "update mediatype",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"UPDATE ",
+									"    MediaType ",
+									"SET ",
+									"    Name = :name ",
+									"WHERE ",
+									"    MediaTypeId = :mediaTypeId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"MediaType updated successfully\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}mediatypes/:mediatypeId",
+							"host": [
+								"{{BASE_URL}}mediatypes"
+							],
+							"path": [
+								":mediatypeId"
+							],
+							"variable": [
+								{
+									"key": "mediatypeId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete mediatype",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"DELETE FROM ",
+									"    MediaType ",
+									"WHERE ",
+									"    MediaTypeId = :mediaTypeId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"MediaType deleted successfully\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}mediatypes/:mediatypeId",
+							"host": [
+								"{{BASE_URL}}mediatypes"
+							],
+							"path": [
+								":mediatypeId"
+							],
+							"variable": [
+								{
+									"key": "mediatypeId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific mediatype",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    * ",
+									"FROM ",
+									"    MediaType ",
+									"WHERE ",
+									"    MediaTypeId = :mediaTypeId;",
+									"",
+									"",
+									"{",
+									"  \"MediaTypeId\": 1,",
+									"  \"Name\": \"MPEG audio\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}mediatypes/:mediatypeId",
+							"host": [
+								"{{BASE_URL}}mediatypes"
+							],
+							"path": [
+								":mediatypeId"
+							],
+							"variable": [
+								{
+									"key": "mediatypeId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genre",
+			"item": [
+				{
+					"name": "get all genre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT",
+									"    *",
+									"FROM",
+									"    Genre",
+									"",
+									"",
+									"[",
+									"  {",
+									"    \"GenreId\": 1,",
+									"    \"Name\": \"Rock\"",
+									"  },",
+									"  {",
+									"    \"GenreId\": 2,",
+									"    \"Name\": \"Jazz\"",
+									"  }",
+									"]",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}genres"
+					},
+					"response": []
+				},
+				{
+					"name": "create genre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"INSERT INTO Genre (Name) VALUES (:name);",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Genre created successfully\",",
+									"  \"GenreId\": 6001",
+									"}",
+									"",
+									"",
+									"Status Code: 201 Created"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}genres"
+					},
+					"response": []
+				},
+				{
+					"name": "update genre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"UPDATE ",
+									"    Genre ",
+									"SET ",
+									"    Name = :name ",
+									"WHERE ",
+									"    GenreId = :genreId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Genre updated successfully\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}genres/:genreId",
+							"host": [
+								"{{BASE_URL}}genres"
+							],
+							"path": [
+								":genreId"
+							],
+							"variable": [
+								{
+									"key": "genreId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete genre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"DELETE FROM ",
+									"    Genre ",
+									"WHERE ",
+									"    GenreId = :genreId;",
+									"",
+									"",
+									"{",
+									"  \"message\": \"Genre deleted successfully\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}genres/:genreId",
+							"host": [
+								"{{BASE_URL}}genres"
+							],
+							"path": [
+								":genreId"
+							],
+							"variable": [
+								{
+									"key": "genreId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific genre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"SELECT ",
+									"    * ",
+									"FROM ",
+									"    Genre ",
+									"WHERE ",
+									"    GenreId = :genreId;",
+									"",
+									"",
+									"{",
+									"  \"GenreId\": 1,",
+									"  \"Name\": \"Rock\"",
+									"}",
+									"",
+									"",
+									"Status Code: 200 OK"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}genres/:genreId",
+							"host": [
+								"{{BASE_URL}}genres"
+							],
+							"path": [
+								":genreId"
+							],
+							"variable": [
+								{
+									"key": "genreId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:5000/"
+		}
+	]
+}
