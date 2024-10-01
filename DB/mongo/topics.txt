@@ -1,3 +1,5 @@
+Date: 30 September 2024
+
 Session title : MongoDB
 
 Afternoon Session
@@ -36,3 +38,45 @@ Transactions in mongoDB
 Replica set in mongoDB
 Replica set in SQL
 Shredding in Database
+
+
+
+Date: 1 October 2024
+
+Title- MongoDB Aggregation
+
+Session Summary:
+
+What is aggregation?
+Different type of aggregate operators
+match
+count
+sort
+group
+limit
+skip
+project
+addField
+lookup
+out
+facet
+arrayElemAt
+Unwind
+What is an aggregation pipeline?
+What is $ and $$ used for?
+Use of let variable.
+Indexes and types of indexing
+TTL(time to leave)
+Pagination and offset
+
+TODO:
+
+Make a file of all queries of mongodb in js and push it on a git by creating pr add aakash as reviewers.
+Explore other aggregate operations too.
+To performing some query task on given sample database - “sample_mflix”
+Write a query to find all movies that share at least one cast member with "Blacksmith Scene."
+Write a query to find the top 5 movies with the highest IMDb ratings that were released before the year 1900.
+Write a query to find all movies directed by "William K.L. Dickson." Return the titles, release years, and IMDb ratings of the movies.
+Write an aggregation query to find the top 3 directors who have directed the most movies in the "Short" genre. Return the directors' names and the number of movies.
+Write a query to find movies where the number of reviews in `tomatoes.viewer.numReviews` has increased by at least 10% over the past year. Return the titles and the number of reviews.
+Write an aggregation query to find the pair of actors who have appeared together in the most number of movies. Return their names and the number of movies they've co-starred in.
