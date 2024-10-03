@@ -1,0 +1,28 @@
+Date: 3 October 2024
+
+Title- Redis
+
+Session Summary:
+Discussion of doubts of prev session task
+Redis
+Naming Conventions
+Redis snapshot
+Redis modules intro only
+Read Methods
+Read from cache → Read from database
+Read from database → read from cache
+Write methods
+Write to cache → Write to database
+Write to database → write to cache
+Task
+Study Justien bieber problem of instagram.
+Understand question 6 solution query from yesterday’s task.
+Create User’s score and leaderboard in redis by EOD.
+Create an array of geo locations and find the shortest path by EOD.
+Write commands in a text file for all redis tasks.
+
+Evening Session
+	
+Session Summary:
+Discussion of Justien Bieber case study.
+
