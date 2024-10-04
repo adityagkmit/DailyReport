@@ -1,0 +1,25 @@
+Date - 04/10/2024 
+Title- Design Patterns
+
+
+
+Session Summary:
+
+What are design patterns?
+Benefits of design patterns.
+Types of design patterns: 
+Singleton pattern
+Factory pattern
+Observer pattern
+Decorator pattern
+Proxy pattern 
+Command pattern
+Solid principles:
+Single Responsibility Principle
+Open-Closed Principle
+Liskov Substitution Principle
+
+Task:
+Interface Segregation Principle.
+Dependency Inversion Principle.
+Good and bad examples of design patterns and SOLID principles.
